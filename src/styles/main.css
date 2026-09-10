@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+/* 1. Fundo do Jogo: Escuridão total */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #050505; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  margin: 0;
+}
+
+/* 2. Container (A "Mesa" do jogo): Borda escura com um leve brilho vermelho */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #111111;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(150, 10, 10, 0.3); /* Aura avermelhada */
+  border: 1px solid #330000;
+}
+
+/* Estilo do Título Macabro */
+h2 {
+  font-family: 'Creepster', cursive; /* Aplica a fonte de terror */
+  font-size: 4em; /* Tamanho bem grande */
+  color: #5a0000; /* Vermelho sangue bem escuro, quase preto */
+  text-transform: uppercase;
+  letter-spacing: 8px; /* Espaço entre as letras para dar tensão */
+  margin-bottom: 30px;
+  text-align: center;
+  
+  /* Múltiplas camadas de sombra para criar um brilho neon/sobrenatural */
+  text-shadow: 
+    2px 2px 0px #000, 
+    0 0 10px rgba(204, 0, 0, 0.8),
+    0 0 20px rgba(204, 0, 0, 0.6),
+    0 0 40px rgba(255, 51, 0, 0.4);
+    
+  /* Chama a animação que criamos abaixo */
+  animation: mentePerturbada 4s infinite;
+}
+
+/* Animação que faz o título pulsar, falhar e mudar de cor levemente */
+@keyframes mentePerturbada {
+  0%, 100% {
+    color: #5a0000;
+    text-shadow: 2px 2px 0px #000, 0 0 10px rgba(204, 0, 0, 0.8), 0 0 20px rgba(204, 0, 0, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    color: #cc0000; /* Fica mais vermelho vivo de repente */
+    text-shadow: 2px 2px 0px #000, 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 51, 0, 0.8), 0 0 50px #ff0000;
+    transform: scale(1.02); /* Aumenta um pouquinho, como um batimento cardíaco */
+  }
+  /* O efeito de "falha de luz" (Glitch elétrico) */
+  90% { opacity: 1; }
+  92% { opacity: 0.3; text-shadow: none; }
+  94% { opacity: 1; }
+  96% { opacity: 0.1; }
+  98% { opacity: 1; }
+}
+
+/* Estilo do Cronômetro */
+.timer {
+  font-family: 'Creepster', cursive;
+  font-size: 3.5em;
+  color: #cc0000;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(204, 0, 0, 0.8);
+  letter-spacing: 4px;
+  transition: all 0.3s;
+}
+
+/* Animação de desespero para os últimos 30 segundos */
+.timer.urgente {
+  animation: batimentoCardiaco 0.8s infinite;
+  color: #ff0000;
+}
+
+@keyframes batimentoCardiaco {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 15px #ff0000; }
+  50% { transform: scale(1.1); text-shadow: 0 0 35px #ff0000; }
+}
+
+.game {
+  width: 430px;
+  height: 430px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+}
+
+/* Classes de desorientação */
+.rotate-90 { transform: rotate(90deg);}
+.rotate-180 { transform: rotate(180deg);}
+.mirror { transform: scaleX(-1);}
+.upside-down { transform: scaleY(-1);}
+
+/* 3. As Cartas (Verso): Gradiente de Terror */
+.item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  background: linear-gradient(135deg, #0a0a0a 0%, #4a0404 50%, #cc3300 100%);
+  border-radius: 8px;
+  border: 2px solid #1a0000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+}
+
+/* Truque para esconder o emoji enquanto a carta está virada para baixo */
+.item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0a0a0a 0%, #4a0404 50%, #cc3300 100%);
+  border-radius: 6px;
+  transition: opacity 0.3s;
+}
+
+/* Animação de pulsar ao passar o mouse */
+.item:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 20px rgba(204, 51, 0, 0.8);
+  border-color: #ff3300;
+}
+
+/* 4. Carta Revelada (.boxOpen) */
+.item.boxOpen::after {
+  opacity: 0; /* Remove a capa de gradiente para mostrar o emoji */
+  pointer-events: none;
+}
+
+.item.boxOpen {
+  background: #1a1a1a; /* Fundo interno quase preto */
+  border-color: #8c1010;
+  box-shadow: inset 0 0 15px rgba(204, 51, 0, 0.4); /* Brilho interno sinistro */
+}
+
+/* 5. Par Encontrado (.boxMatch): Aspecto "Morto/Apodrecido" */
+.item.boxMatch::after {
+  opacity: 0;
+}
+
+.item.boxMatch {
+  background: #0d0d0d;
+  border-color: #274520; /* Borda verde pântano */
+  color: rgba(255, 255, 255, 0.3); /* Deixa o emoji com aspecto fantasmagórico */
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+  filter: grayscale(80%); /* Tira a vida das cores do emoji */
+}
+
+.reset {
+    padding: 15px 20px;
+    width: 100%;
+    color: #8c1010; /* Vermelho sangue escuro */
+    background-color: #0a0a0a; /* Fundo quase preto */
+    border: 2px solid #330000; /* Borda escura */
+    border-radius: 8px; /* Combinando com o arredondamento das cartas */
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+    
+    /* Suaviza a transição de cores ao passar o mouse ou focar */
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse por cima (hover) ou navegar pelo teclado (focus) */
+.reset:hover, 
+.reset:focus {
+    color: #ff3300; /* Texto acende em um laranja/vermelho vivo */
+    background-color: #1a0505; /* Fundo clareia levemente para um tom de sangue */
+    border-color: #cc3300; /* Borda acende */
+    box-shadow: 0 0 20px rgba(204, 51, 0, 0.6); /* Aura de terror igual a da mesa e cartas */
+    outline: none; /* Remove a borda padrão feia do navegador */
+}
+
+/* Efeito ao clicar no botão */
+.reset:active {
+    transform: scale(0.97); /* O botão afunda levemente dando impressão de peso */
+    box-shadow: 0 0 10px rgba(204, 51, 0, 0.4);
+}
+
+/* Estilo da Mensagem Sarcástica */
+#mensagem-sarcastica {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Creepster', cursive;
+  font-size: 2.5em;
+  color: #ff0000;
+  text-align: center;
+  text-shadow: 2px 2px 0px #000, 0 0 15px #cc0000;
+  z-index: 100;
+  pointer-events: none; /* Impede que o texto bloqueie os cliques nas cartas */
+  
+  /* Escondido por padrão */
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Classe que será adicionada pelo JS para mostrar o texto tremendo */
+#mensagem-sarcastica.mostrar {
+  opacity: 1;
+  animation: tremor 0.1s infinite; /* Tremor super rápido */
+}
+
+@keyframes tremor {
+  0% { transform: translateX(-50%) translateY(-2px); }
+  50% { transform: translateX(-51%) translateY(2px); }
+  100% { transform: translateX(-49%) translateY(-1px); }
+}
+
+/* Modificador para a mensagem de vitória */
+#mensagem-sarcastica.vitoria-macabra {
+  color: #fff;
+  text-shadow: 2px 2px 0px #000, 0 0 20px #fff, 0 0 40px #8c1010; /* Brilho pálido com contorno de sangue */
+  animation: pulsarLento 2s infinite; /* Tira o tremor e coloca um pulsar sombrio */
+}
+
+@keyframes pulsarLento {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  50% { transform: translateX(-50%) scale(1.05); opacity: 1; }
+}
+
+/* Modificador para a mensagem de Game Over */
+#mensagem-sarcastica.derrota-macabra {
+  color: #ff0000;
+  text-shadow: 2px 2px 0px #000, 0 0 20px #ff0000, 0 0 40px #5a0000; /* Brilho vermelho sangue intenso */
+  animation: pulsarLento 2s infinite; /* Usa a mesma animação da vitória */
+}
+
+/* Filtro de deorientação Total */
+.panic-mode {
+  filter:blur(4px) grayscale(80%) sepia(20%);
+  transition: filter 2s ease-in-out;
+}
+
+@keyframes shake {
+  0% {transform: translate(1px, 1px) rotate(0deg); }
+  50% {transform: translate(-1px, -2px) rotate(-1deg); }
+  100% {transform: translate(1px, 1px) rotate(0deg); }
+}
+
+.shaking {
+  animation: shake 0.5s infinite;
+}

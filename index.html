@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Demência</title>
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <h2>JOGO DA DEMÊNCIA</h2>
+
+    <!-- Novo elemento do cronômetro -->
+    <div id="timer" class="timer">03:00</div>
+    
+<div id="mensagem-sarcastica"></div>
+
+    <div class="game"></div>
+    <button class="reset" onclick="window.location.reload()">RESET GAME</button>
+  </div>
+
+<!-- Tag de áudio escondida -->
+  <audio id="trilha-terror" loop>
+    <source src="./src/audios/terror.mp3" type="audio/mpeg">
+  </audio>
+
+<!-- NOVO: Áudio de Erro -->
+    <audio id="som-erro">
+        <source src="./src/audios/sonic-error-sound.mp3" type="audio/mpeg">
+    </audio>
+
+<!-- NOVO: Áudio de Vitória -->
+    <audio id="som-vitoria">
+        <source src="./src/audios/vitoria.mp3" type="audio/mpeg">
+    </audio>
+
+<!-- NOVO: Áudio de Derrota (Game Over) -->
+    <audio id="som-derrota">
+        <source src="./src/audios/risada.mp3" type="audio/mpeg">
+    </audio>
+
+  <script defer src="./src/scripts/engine.js"></script>  
+</body>
+</html>
