@@ -57,6 +57,39 @@ for (let i=0; i < emojis.length; i++)
         console.log(openCards);
     }
 
+
+let sanityLevel = 0;
+let panicInterval;
+
+function startPanicTimer () {
+    panicInterval = setInterval(() => {
+        sanityLevel += 1;
+        const gameContainer = document.querySelector('.game');
+
+        if (sanityLevel > 5) {
+            gameContainer.classList.add('panic-mode');
+        }
+        
+        if (sanityLevel > 10) {
+            gameContainer.classList.add('shaking');
+
+        }
+
+         if (sanityLevel > 15) {
+            gameContainer.classList.style.filter = 'blur (${sanityLevel - 10}px) grayscale(100%)'; 
+        }
+    }, 1000); // a cada segundo piora as coisas
+}
+
+//Resetar a visãpo quando acerta
+function recoverSanity() {
+    sanityLevel = 0;
+    const gameContainer= document = document.querySelector('.game');
+    gameContainer.classList.remove('panic-mode' , 'shaking');
+    gameContainer.style.filter = 'none';
+
+}
+
     function checkMatch(){
 // Lê o emoji da primeira carta, joga no dicionário e vê se o resultado bate com a segunda
 if (paresMacabros[openCards[0].innerHTML] === openCards[1].innerHTML) {
@@ -276,34 +309,4 @@ function applyLayoutCaos () {
 }
 
 
-let sanityLevel = 0;
-let panicInterval;
 
-function startPanicTimer () {
-    panicInterval = setInterval(() => {
-        sanityLevel += 1;
-        const gameContainer = document.querySelector('.game');
-
-        if (sanityLevel > 5) {
-            gameContainer.classList.add('panic-mode');
-        }
-        
-        if (sanityLevel > 10) {
-            gameContainer.classList.add('shaking');
-
-        }
-
-         if (sanityLevel > 15) {
-            gameContainer.classList.style.filter = 'blur (${sanityLevel - 10}px) grayscale(100%)'; 
-        }
-    }, 1000); // a cada segundo piora as coisas
-}
-
-//Resetar a visãpo quando acerta
-function recoverSanity() {
-    sanityLevel = 0;
-    const gameContainer= document = document.querySelector('.game');
-    gameContainer.classList.remove('panic-mode' , 'shaking');
-    gameContainer.style.filter = 'none';
-
-}
