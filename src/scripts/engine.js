@@ -147,7 +147,7 @@ document.body.addEventListener("click", () => {
 
 // --- SISTEMA DE CRONÔMETRO DA MORTE ---
 const timerElement = document.getElementById("timer");
-let tempoRestante = 150; // 2:30 minutos = 150 segundos
+let tempoRestante = 120; // 2:00 minutos = 120 segundos
 let cronometroIntervalo;
 
 function iniciarCronometro() {
