@@ -153,7 +153,7 @@ let cronometroIntervalo;
 function iniciarCronometro() {
     // Garante que não há múltiplos cronômetros rodando
     clearInterval(cronometroIntervalo);
-    tempoRestante = 150; 
+    tempoRestante = 120; 
     timerElement.classList.remove("urgente");
     atualizarDisplayTimer();
 
