@@ -24,7 +24,7 @@ Para quem está avaliando o código, este projeto evidencia habilidades fundamen
 
 * **HTML5:** Semântica e estruturação dos elementos na tela.
 * **CSS3:** Estilização avançada, layout com Flexbox/Grid e animações nativas.
-* **JavaScript (ES6+):** Motor lógico do jogo, eventos de interface e controle de áudio/vídeo.
+* **JavaScript:** Motor lógico do jogo, eventos de interface e controle de áudio/vídeo.
 
 ## ⚙️ Como Funciona a Estrutura e Lógica
 
