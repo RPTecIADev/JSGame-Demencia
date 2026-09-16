@@ -45,8 +45,8 @@ Como o projeto é nativo no navegador, não há necessidade de gerenciadores de 
 1. **Clone este repositório:**
    
 ```bash
-   git clone [https://github.com/RPTecIADev/JSGame-emoji-memory.git](https://github.com/RPTecIADev/JSGame-emoji-memory.git)
+   git clone [https://github.com/RPTecIADev/JSGame-Demencia.git](https://github.com/RPTecIADev/JSGame-Demencia.git)
 ```
 
 Aproveitem e se divirtam!!! :D
-Acesse a página do game ===> (https://RPTecIADev.github.io/JSGame-emoji-memory/) <===
+Acesse a página do game ===> (https://RPTecIADev.github.io/JSGame-Demencia/) <===
