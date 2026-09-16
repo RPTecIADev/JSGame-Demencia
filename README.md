@@ -2,7 +2,7 @@
   <!-- Sugestão: Crie um banner com fundo escuro e fontes em verde/azul neon com o título do projeto -->
 <img width="1024" height="254" alt="image" src="https://github.com/user-attachments/assets/84c5e308-8b5c-4b8e-bd0a-fb318ca00fd8" />
 
-  # 🧠 JSGame - Emoji Memory
+  # 🧠 JSGame - Demência
 
 ![image](https://github.com/RPTecDev/JSGame-emoji-memory/assets/114440054/b94edffc-10af-45ba-a276-fdf5f1518bfa)
 
