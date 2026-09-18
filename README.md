@@ -8,9 +8,9 @@
 
 ## 📌 Sobre o Projeto
 
-O **JSGame-Demencia** é um jogo interativo desenvolvido para a web (HTML, CSS e JavaScript Vanilla). Este projeto foi construído com o intuito de demonstrar forte domínio em lógica de programação, manipulação da DOM, gerenciamento de estado e animações, oferecendo uma experiência de usuário (UX) engajadora.
+O **JSGame-Demencia** é um jogo interativo desenvolvido para a web (HTML, CSS e JavaScript). Este projeto foi construído com o intuito de demonstrar forte domínio em lógica de programação, manipulação da DOM, gerenciamento de estado e animações, oferecendo uma experiência de usuário (UX) engajadora.
 
-*(Nota: Adicione aqui detalhes específicos sobre o tema de Demencia. É um jogo de memória? Um jogo de ação? Detalhe a mecânica principal do seu jogo aqui).*
+*É um jogo de memória? Sim. mas totalmente fora do comum e muito provavelmente, vai te deixar maluco.*
 
 ## 🎯 Por que este projeto se destaca? (Visão para Recrutadores)
 
