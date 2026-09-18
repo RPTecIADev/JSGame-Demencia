@@ -64,7 +64,7 @@ Acesse a página do game ===> (https://RPTecIADev.github.io/JSGame-Demencia/) <=
 ## 👨‍💻 Autor
 
 Desenvolvido por **Rafael Rodrigues Pereira**
-*Técnico em Eletrônica, Graduando em IA/Machine Learning e desenvolvedor Fullstack.*
+*Técnico em Eletrônica, Graduando em IA/Machine Learning e desenvolvedor Frontend.*
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafael-rodrigues-pereira) 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@RPTecIADev)
